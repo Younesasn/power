@@ -1,0 +1,26 @@
+:root {
+    --white: #f9f7f1;
+    --black: #0000;
+    --primary: #433b23;
+    --secondary: #7a621a;
+    --accent: #a48119;
+}
+
+/* Hero en BG */
+/* .hero {
+    background-image: url('../img/hero1.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 620px;
+} */
+
+.justify {
+    text-align: justify;
+}
+
+.deco-none {
+    color: var(--white);
+    text-decoration: none; /* no underline */
+}
