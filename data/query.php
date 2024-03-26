@@ -20,12 +20,10 @@ $series = $requete->fetchAll();
 //         INNER JOIN actors_occupations AS a_o ON o.id_occupations = a_o.id_occupations 
 //         INNER JOIN actors AS a ON a_o.id_actors = a.id_actors 
 //         INNER JOIN actors_series AS a_s ON a.id_actors = a_s.id_actors 
-//         INNER JOIN series AS s ON a_s.id_series = s.id_series WHERE a_s.id_series = :id";
+//         INNER JOIN series AS s ON a_s.id_series = s.id_series WHERE a_s.id_series = ?";
 // $requete = $bdd->prepare($sql);
-// $requete->execute([
-//         'id' => $_GET['id']
-// ]);
-// $actors = $requete->fetchAll(PDO::FETCH_ASSOC);
+// $requete->execute($_GET['id']);
+// $actors = $requete->fetchAll();
 
 // echo '<pre>';
 // var_dump($actors);
