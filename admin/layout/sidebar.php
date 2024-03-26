@@ -21,7 +21,7 @@
                 </a>
             </li>
 
-            <li class="sidebar-item">
+            <!-- <li class="sidebar-item">
                 <a class="sidebar-link" href="pages-sign-in.php">
                     <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Sign In</span>
                 </a>
@@ -31,13 +31,13 @@
                 <a class="sidebar-link" href="pages-sign-up.php">
                     <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Sign Up</span>
                 </a>
-            </li>
+            </li> -->
 
-            <li class="sidebar-item">
+            <!-- <li class="sidebar-item">
                 <a class="sidebar-link" href="pages-settings.php">
                     <i class="align-middle" data-feather="settings"></i> <span class="align-middle">Settings</span>
                 </a>
-            </li>
+            </li> -->
 
             <li class="sidebar-item">
                 <a class="sidebar-link" href="upload.php">

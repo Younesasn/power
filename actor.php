@@ -4,7 +4,7 @@ require_once 'layout/head.php';
 
 $id = $_GET['id'];
 
-$lactor = getActor($id, $actor);
+$lactor = getActor($id, $actors);
 
 if ($lactor === null) {
     http_response_code(404);
