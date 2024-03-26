@@ -53,18 +53,18 @@ require_once 'layout/head.php';
     <div class="container">
         <div class="row text-center">
             <h2 class="mt-4">Series</h2>
-            <?php for ($i = 0; $i < count($series); $i++) { ?>
+            <?php foreach($series as $serie) { ?>
                 <div class="col-lg-6 mt-4">
                     <div class="card text-center">
                         <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                            <img src="<?php echo $series[$i]['picture_series']; ?>" class="img-fluid" />
-                            <a href="serie.php?id=<?php echo $series[$i]['id_series']; ?>">
+                            <img src="<?php echo $serie['picture_series']; ?>" class="img-fluid" />
+                            <a href="serie.php?id=<?php echo $serie['id_series']; ?>">
                                 <div class="mask"></div>
                             </a>
                         </div>
 
                         <div class="card-body">
-                            <h5 class="card-title"><?php echo $series[$i]['name_series']; ?></h5>
+                            <h5 class="card-title"><?php echo $serie['name_series']; ?></h5>
                         </div>
                     </div>
                 </div>

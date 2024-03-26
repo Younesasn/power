@@ -6,6 +6,7 @@ $sql = "SELECT * FROM series";
 $requete = $bdd->query($sql);
 $series = $requete->fetchAll();
 
+
 // Requète préparée pour la page series.php & actor.php
 $sql = "SELECT * FROM occupations AS o 
         INNER JOIN actors_occupations AS a_o ON o.id_occupations = a_o.id_occupations 
