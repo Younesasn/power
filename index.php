@@ -82,9 +82,9 @@ require_once 'layout/head.php';
                 <div class="border mb-4">
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta molestias id doloremque praesentium consequuntur ipsa vero, expedita, modi veniam laboriosam possimus itaque inventore accusantium perferendis maiores sunt! Optio, voluptatibus inventore!
                 </div>
-                <div class="btn btn-primary">
+                <!-- <div class="btn btn-primary">
                     <a href="admin/index.php" class="deco-none">Admin</a>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

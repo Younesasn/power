@@ -63,13 +63,8 @@ require_once 'functions/getActor.php'; ?>
                 <div class="collapse navbar-collapse col-lg-4 justify-content-end" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="index.php" class="nav-link active">
-                                Connexion
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="index.php" class="nav-link active">
-                                Inscription
+                            <a href="sign-in.php" class="nav-link active">
+                                Admin
                             </a>
                         </li>
                     </ul>
