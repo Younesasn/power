@@ -20,10 +20,11 @@
 									<table class="table table-hover my-0">
 										<thead>
 											<tr>
-												<th>Name</th>
+												<th>Actors</th>
 												<th class="d-none d-xl-table-cell">Series</th>
+												<th class="d-none d-xl-table-cell">Occupations</th>
 												<th class="d-none d-xl-table-cell">Date</th>
-												<!-- <th>Status</th> -->
+												<th>Status</th>
 												<th class="d-none d-md-table-cell"></th>
 											</tr>
 										</thead>

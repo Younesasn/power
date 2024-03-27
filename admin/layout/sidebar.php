@@ -15,11 +15,11 @@
                 </a>
             </li>
 
-            <li class="sidebar-item">
+            <!-- <li class="sidebar-item">
                 <a class="sidebar-link" href="pages-profile.php">
                     <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
                 </a>
-            </li>
+            </li> -->
 
             <!-- <li class="sidebar-item">
                 <a class="sidebar-link" href="pages-sign-in.php">

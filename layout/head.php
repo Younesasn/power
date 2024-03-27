@@ -1,6 +1,7 @@
-<?php 
+<?php
 require_once 'data/query.php';
-require_once 'functions/getActor.php'; ?>
+require_once 'functions/getActor.php';
+require_once 'functions/error.php'; ?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -47,8 +48,8 @@ require_once 'functions/getActor.php'; ?>
                             </a>
 
                             <ul class="dropdown-menu">
-                                <?php for($i = 0; $i < count($series); $i++) { ?>
-                                <li><a class="dropdown-item" href="serie.php?id=<?php echo $series[$i]['id_series'];?>"><?php echo $series[$i]['name_series']; ?></a></li>
+                                <?php for ($i = 0; $i < count($series); $i++) { ?>
+                                    <li><a class="dropdown-item" href="serie.php?id=<?php echo $series[$i]['id_series']; ?>"><?php echo $series[$i]['name_series']; ?></a></li>
                                 <?php } ?>
                             </ul>
 
@@ -71,5 +72,11 @@ require_once 'functions/getActor.php'; ?>
                 </div>
             </div>
         </nav>
+        <?php
+        if (isset($_GET['error'])) {
+            $errorMsg = getErrorMessage(intval($_GET['error']));
+            require_once 'templates/error_notification.php';
+        }
+        ?>
     </header>
     <main>

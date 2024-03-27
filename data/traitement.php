@@ -1,28 +1,33 @@
 <?php
 require_once 'query.php';
+require_once __DIR__ . '/../functions/error.php';
 
-if(isset($_POST['send'])) {
-    if(!empty($_POST['useradmin']) && !empty($_POST['password'])) {
+if (isset($_POST['send'])) {
+    if (empty($_POST['useradmin']) || empty($_POST['password'])) {
+        header('Location: ../sign-in.php?error=' . USER_EMPTY);
+    } else {
         $useradmin = $_POST['useradmin'];
         $password = $_POST['password'];
 
         $sql = "SELECT * FROM admin WHERE username_admin = :username AND password_admin = :password";
         $stmt = $bdd->prepare($sql);
         $stmt->execute(
-            ['username' => $useradmin, 
-            'password' => $password]
+            [
+                'username' => $useradmin,
+                'password' => $password
+            ]
         );
         $user = $stmt->fetchAll();
-        
+
         if (count($user) > 0) {
-            session_start();
+            // session_start();
             // $_SESSION['useradmin'] = $useradmin;
             // $_SESSION['password'] = $password;
             // $_SESSION['id'] = $user->fetch()['id'];
             header('Location: /power/admin/index.php');
+        } else {
+            header('Location: ../sign-in.php?error=' . USER_INVALID);
         }
-    } else {
-        echo 'Mauvais identifiants';
     }
 }
 
