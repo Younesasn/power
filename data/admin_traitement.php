@@ -1,5 +1,5 @@
 <?php
-require_once 'query.php';
+require_once 'cnx.php';
 require_once __DIR__ . '/../functions/error.php';
 
 if (isset($_POST['send'])) {
@@ -20,9 +20,9 @@ if (isset($_POST['send'])) {
         $user = $stmt->fetchAll();
 
         if (count($user) > 0) {
-            // session_start();
-            // $_SESSION['useradmin'] = $useradmin;
-            // $_SESSION['password'] = $password;
+            session_start();
+            $_SESSION['useradmin'] = $useradmin;
+            $_SESSION['password'] = $password;
             // $_SESSION['id'] = $user->fetch()['id'];
             header('Location: /power/admin/index.php');
         } else {

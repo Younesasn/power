@@ -1,4 +1,6 @@
-<?php require_once 'layout/head.php'; ?>
+<?php 
+require_once 'layout/head.php'; 
+?>
 <div class="wrapper">
 	<?php require_once 'layout/sidebar.php'; ?>
 	<div class="main">

@@ -64,6 +64,11 @@ require_once 'functions/error.php'; ?>
                 <div class="collapse navbar-collapse col-lg-4 justify-content-end" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
+                            <a href="sign-up.php" class="nav-link active">
+                                Inscription
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="sign-in.php" class="nav-link active">
                                 Admin
                             </a>

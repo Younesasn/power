@@ -1,8 +1,8 @@
 <?php require_once 'layout/head.php'; ?>
 <main class="d-flex w-100">
 	<div class="container d-flex flex-column">
-		<div class="row vh-100">
-			<div class="col-sm-10 col-md-8 col-lg-6 col-xl-5 mx-auto d-table h-100">
+		<div class="row">
+			<div class="col-lg-10 mx-auto d-table h-100">
 				<div class="d-table-cell align-middle">
 
 					<div class="text-center mt-4">
@@ -15,10 +15,16 @@
 					<div class="card">
 						<div class="card-body">
 							<div class="m-sm-3">
-								<form>
-									<div class="mb-3">
-										<label class="form-label">Full name</label>
-										<input class="form-control form-control-lg" type="text" name="name" placeholder="Enter your name" />
+								<form method="POST" action="data/signup_traitement.php">
+									<div class="row">
+										<div class="mb-3 col-lg-6">
+											<label class="form-label">First name</label>
+											<input class="form-control form-control-lg" type="text" name="first_name" placeholder="Enter your name" />
+										</div>
+										<div class="mb-3 col-lg-6">
+											<label class="form-label">Last name</label>
+											<input class="form-control form-control-lg" type="text" name="last_name" placeholder="Enter your name" />
+										</div>
 									</div>
 									<div class="mb-3">
 										<label class="form-label">Email</label>
@@ -29,14 +35,11 @@
 										<input class="form-control form-control-lg" type="password" name="password" placeholder="Enter password" />
 									</div>
 									<div class="d-grid gap-2 mt-3">
-										<a href="index.html" class="btn btn-lg btn-primary">Sign up</a>
+										<input type="submit" name="send" value="Sign Up" class="btn btn-lg btn-primary">
 									</div>
 								</form>
 							</div>
 						</div>
-					</div>
-					<div class="text-center mb-3">
-						Already have account? <a href="pages-sign-in.html">Log In</a>
 					</div>
 				</div>
 			</div>

@@ -1,6 +1,11 @@
 <?php 
 require_once 'layout/head.php'; 
-require_once 'data/traitement.php';
+require_once 'data/admin_traitement.php';
+
+session_start();
+if(isset($_SESSION['useradmin']) && isset($_SESSION['password'])) {
+	header('Location: admin/index.php');
+}
 ?>
 <main class="d-flex w-100">
 	<div class="container d-flex flex-column">
@@ -18,7 +23,7 @@ require_once 'data/traitement.php';
 					<div class="card">
 						<div class="card-body">
 							<div class="m-sm-3">
-								<form method="POST" action="data/traitement.php">
+								<form method="POST" action="data/admin_traitement.php">
 									<div class="mb-3">
 										<label class="form-label">User Admin</label>
 										<input class="form-control form-control-lg" type="text" id="useradmin" name="useradmin" placeholder="Enter your user admin" />

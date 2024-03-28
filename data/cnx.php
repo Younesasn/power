@@ -7,9 +7,10 @@ $db_db = 'power';
 try {
     // On se connecte à MySQL
     $bdd = new PDO('mysql:host='.$db_host.';dbname='.$db_db.';charset=utf8', $db_user, $db_password, [
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
     ]);
-} catch (Exception $e) {
+} catch (PDOException $e) {
     // En cas d'erreur, on affiche un message et on arrête tout
     die('Erreur : ' . $e->getMessage());
 }

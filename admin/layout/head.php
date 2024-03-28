@@ -1,3 +1,9 @@
+<?php 
+session_start();
+if (!isset($_SESSION['useradmin']) && !isset($_SESSION['password'])) {
+	header('Location: ../index.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
