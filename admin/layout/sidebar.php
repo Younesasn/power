@@ -33,11 +33,11 @@
                 </a>
             </li> -->
 
-            <!-- <li class="sidebar-item">
-                <a class="sidebar-link" href="pages-settings.php">
-                    <i class="align-middle" data-feather="settings"></i> <span class="align-middle">Settings</span>
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="messagerie.php">
+                    <i class="align-middle" data-feather="mail"></i> <span class="align-middle">Messagerie</span>
                 </a>
-            </li> -->
+            </li>
 
             <li class="sidebar-item">
                 <a class="sidebar-link" href="upload.php">

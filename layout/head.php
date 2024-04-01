@@ -1,7 +1,9 @@
 <?php
 require_once 'data/query.php';
 require_once 'functions/getActor.php';
-require_once 'functions/error.php'; ?>
+require_once 'functions/error.php'; 
+require_once 'functions/succes.php';
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -81,6 +83,11 @@ require_once 'functions/error.php'; ?>
         if (isset($_GET['error'])) {
             $errorMsg = getErrorMessage(intval($_GET['error']));
             require_once 'templates/error_notification.php';
+        }
+
+        if (isset($_GET['succes'])) {
+            $succesMsg = getsuccesMessage(intval($_GET['succes']));
+            require_once 'templates/succes_notification.php';
         }
         ?>
     </header>

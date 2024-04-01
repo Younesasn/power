@@ -49,11 +49,11 @@ require_once 'layout/head.php';
 </section>
 
 <!-- Series -->
-<section class="">
+<section class="mb-4">
     <div class="container">
         <div class="row text-center">
             <h2 class="mt-4">Series</h2>
-            <?php foreach($series as $serie) { ?>
+            <?php foreach ($series as $serie) { ?>
                 <div class="col-lg-6 mt-4">
                     <div class="card text-center">
                         <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
@@ -69,23 +69,6 @@ require_once 'layout/head.php';
                     </div>
                 </div>
             <?php } ?>
-        </div>
-    </div>
-</section>
-
-<!-- call to action -->
-<section class="primary">
-    <div class="container">
-        <div class="row text-center">
-            <h2 class="my-4">Titre</h2>
-            <div class="col-lg-12">
-                <div class="border mb-4">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta molestias id doloremque praesentium consequuntur ipsa vero, expedita, modi veniam laboriosam possimus itaque inventore accusantium perferendis maiores sunt! Optio, voluptatibus inventore!
-                </div>
-                <!-- <div class="btn btn-primary">
-                    <a href="admin/index.php" class="deco-none">Admin</a>
-                </div> -->
-            </div>
         </div>
     </div>
 </section>
