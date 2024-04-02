@@ -6,7 +6,7 @@
     'DB_PASSWORD' => $db_password,
     'DB_CHARSET' => $db_charset
     
-] = parse_ini_file('config/db.ini');
+] = parse_ini_file(__DIR__ . '/../config/db.ini');
 
 try {
     // On se connecte à MySQL
