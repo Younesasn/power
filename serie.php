@@ -1,6 +1,10 @@
 <?php
 $title = 'Power Universe';
 require_once 'layout/head.php';
+require_once 'classes/Actor.php';
+
+$actors = new Actor();
+$actors = $actors->getActorsByIdSeries();
 ?>
 
 <section class="">

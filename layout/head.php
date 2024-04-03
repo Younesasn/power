@@ -1,8 +1,10 @@
 <?php
-require_once 'data/query.php';
-require_once 'functions/getActor.php';
+require_once 'classes/Serie.php';
 require_once 'functions/error.php'; 
 require_once 'functions/succes.php';
+
+$series = new Serie;
+$series = $series->getSeries();
 ?>
 <!DOCTYPE html>
 <html lang="fr">

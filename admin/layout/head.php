@@ -1,7 +1,7 @@
 <?php 
 session_start();
 if (!isset($_SESSION['useradmin']) && !isset($_SESSION['password'])) {
-	header('Location: ../index.php');
+	header('Location: ../sign-in.php');
 }
 ?>
 <!DOCTYPE html>

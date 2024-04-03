@@ -1,12 +1,13 @@
 <?php
 $title = 'Profil';
 require_once 'layout/head.php';
+require_once 'classes/Actor.php';
 
 $id = $_GET['id'];
+$actor = new Actor();
+$actor = $actor->getActor($id, $actor->getActorsByIdSeries());
 
-$lactor = getActor($id, $actors);
-
-if ($lactor === null) {
+if ($actor === null) {
     http_response_code(404);
     // Template 404 => require_once
     echo "Acteur non trouvé";
@@ -17,28 +18,28 @@ if ($lactor === null) {
 <section class="">
     <div class="container">
         <div class="row">
-            <h2 class="my-4 text-center"><?php echo $lactor['first_name_actors'] . ' ' . $lactor['last_name_actors']; ?></h2>
+            <h2 class="my-4 text-center"><?php echo $actor['first_name_actors'] . ' ' . $actor['last_name_actors']; ?></h2>
             <div class="col-lg-6 bg-secondary">
                 <div class="mb-4 text-center">
-                    <img src="<?php echo $lactor['picture_actors']; ?>" alt="" class="mt-2 img-fluid">
+                    <img src="<?php echo $actor['picture_actors']; ?>" alt="" class="mt-2 img-fluid">
                 </div>
                 <div class="">
                     <div>
-                        <p>Nom : <?php echo $lactor['last_name_actors']; ?></p>
-                        <p>Prénom : <?php echo $lactor['first_name_actors']; ?></p>
-                        <p>Surnom : <?php echo $lactor['surname_actors']; ?></p>
-                        <p>Date de naissance : <?php echo $lactor['date_birth_actors']; ?></p>
+                        <p>Nom : <?php echo $actor['last_name_actors']; ?></p>
+                        <p>Prénom : <?php echo $actor['first_name_actors']; ?></p>
+                        <p>Surnom : <?php echo $actor['surname_actors']; ?></p>
+                        <p>Date de naissance : <?php echo $actor['date_birth_actors']; ?></p>
                     </div>
                     <div>
-                        <p>Occupation : <?php echo $lactor['name_occupations']; ?></p>
-                        <p>État : <?php echo $lactor['status_actors']; ?></p>
+                        <p>Occupation : <?php echo $actor['name_occupations']; ?></p>
+                        <p>État : <?php echo $actor['status_actors']; ?></p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="mb4">
-                    <p class="justify">"<?php echo $lactor['quote_actors']; ?>"</p>
-                    <p class="justify"><?php echo $lactor['description_actors']; ?></p>
+                    <p class="justify">"<?php echo $actor['quote_actors']; ?>"</p>
+                    <p class="justify"><?php echo $actor['description_actors']; ?></p>
 
                     <p class="justify">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae, explicabo illum ab perspiciatis in error eveniet porro beatae aliquid necessitatibus pariatur quos ducimus? Ab mollitia velit veritatis eius officiis dolores.
                         Culpa pariatur esse sit modi quas accusantium nesciunt autem officiis, praesentium labore non recusandae optio ipsam quasi tempora saepe laboriosam atque velit ad dolore quia aspernatur laudantium. Perferendis, veritatis rerum!

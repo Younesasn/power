@@ -1,5 +1,9 @@
-<?php 
-require_once 'layout/head.php'; 
+<?php
+require_once 'layout/head.php';
+require_once 'classes/Contact.php';
+
+$latestContacts = new Contact();
+$latestContacts = $latestContacts->getLatestContacts();
 ?>
 <div class="wrapper">
 	<?php require_once 'layout/sidebar.php'; ?>
@@ -106,12 +110,33 @@ require_once 'layout/head.php';
 						<div class="card flex-fill w-100">
 							<div class="card-header">
 
-								<h5 class="card-title mb-0">Recent Movement</h5>
+								<h5 class="card-title mb-0">Messages récents</h5>
 							</div>
 							<div class="card-body py-3">
-								<div class="chart chart-sm">
-									<canvas id="chartjs-dashboard-line"></canvas>
-								</div>
+								<table class="table table-hover my-0">
+									<thead>
+										<tr>
+											<th>Last Name</th>
+											<th class="d-none d-xl-table-cell">First Name</th>
+											<th class="d-none d-xl-table-cell">E-mail</th>
+											<th class="d-none d-xl-table-cell">Date</th>
+											<th>Object</th>
+											<th class="d-none d-md-table-cell"></th>
+										</tr>
+									</thead>
+									<tbody>
+										<?php foreach ($latestContacts as $contact) { ?>
+											<tr>
+												<td><?php echo $contact['last_name_contacts']; ?></td>
+												<td class="d-none d-xl-table-cell"><?php echo $contact['first_name_contacts']; ?></td>
+												<td class="d-none d-xl-table-cell"><?php echo $contact['email_contacts']; ?></td>
+												<td><span class="badge text-bg-secondary"><?php echo $contact['date']; ?></span></td>
+												<td class="d-none d-xl-table-cell"><?php echo $contact['object_contacts']; ?></td>
+												<th class="d-none d-md-table-cell"><a href="messages.php?id=<?php echo $contact['id_contacts']; ?>"><i class="align-middle" data-feather="arrow-right"></i></a></th>
+											</tr>
+										<?php } ?>
+									</tbody>
+								</table>
 							</div>
 						</div>
 					</div>

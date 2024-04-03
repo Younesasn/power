@@ -1,6 +1,9 @@
 <?php
 require_once 'layout/head.php';
-require_once 'data/query.php';
+require_once 'classes/Contact.php';
+
+$contacts = new Contact();
+$contacts = $contacts->getContacts();
 ?>
 <div class="wrapper">
 	<?php require_once 'layout/sidebar.php'; ?>
@@ -9,7 +12,7 @@ require_once 'data/query.php';
 
 		<main class="content">
 			<div class="container-fluid p-0">
-				<h1 class="h3 mb-3">Messenger</h1>
+				<h1 class="h3 mb-3">Messagerie</h1>
 				<div class="row">
 					<div class="col-12">
 						<div class="row">
@@ -35,9 +38,9 @@ require_once 'data/query.php';
 													<td><?php echo $contact['last_name_contacts']; ?></td>
 													<td class="d-none d-xl-table-cell"><?php echo $contact['first_name_contacts']; ?></td>
 													<td class="d-none d-xl-table-cell"><?php echo $contact['email_contacts']; ?></td>
-													<td><span class="badge bg-success"><?php echo $contact['date']; ?></span></td>
+													<td><span class="badge text-bg-secondary"><?php echo $contact['date']; ?></span></td>
 													<td class="d-none d-xl-table-cell"><?php echo $contact['object_contacts']; ?></td>
-													<th class="d-none d-md-table-cell"></th>
+													<th class="d-none d-md-table-cell text-center"><a href="messages.php?id=<?php echo $contact['id_contacts']; ?>"><i class="align-middle" data-feather="arrow-right"></i></a></th>
 												</tr>
 											<?php } ?>
 										</tbody>
