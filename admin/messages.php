@@ -1,15 +1,14 @@
 <?php
 require_once 'layout/head.php';
-require_once 'classes/Contact.php';
+require_once '../classes/Contact.php';
 
 $id = $_GET['id'];
 
-$message = new Contact();
-$message = $message->getMessages($id, $message->getcontacts());
+$message = Contact::getMessages($id, Contact::getcontacts());
 
 if ($message === null) {
     http_response_code(404);
-    // Template 404 => require_once
+    // Template 404 => require_once '../templates/';
     echo "Message non trouvé";
     exit;
 }

@@ -4,8 +4,7 @@ require_once 'layout/head.php';
 require_once 'classes/Actor.php';
 
 $id = $_GET['id'];
-$actor = new Actor();
-$actor = $actor->getActor($id, $actor->getActorsByIdSeries());
+$actor = Actor::getActor($id, Actor::getActorsByIdSeries());
 
 if ($actor === null) {
     http_response_code(404);

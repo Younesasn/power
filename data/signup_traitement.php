@@ -7,17 +7,13 @@ if (isset($_POST['send'])) {
         header('Location: ../sign-up.php?error=' . USER_EMPTY);
         exit;
     }
-    $firstName = $_POST['first_name'];
-    $lastName = $_POST['last_name'];
-    $email = $_POST['email'];
-    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
     try {
-        $insertUser = new User();
-        $insertUser = $insertUser->insertUser($firstName, $lastName, $email, $password);
+        $insertUser = new User($_POST);
+        $insertUser->insertUser();
         header('Location: ../index.php');
     } catch (PDOException $e) {
-        var_dump($e->getMessage());
+        echo $e->getMessage();
         exit;
     }
 }

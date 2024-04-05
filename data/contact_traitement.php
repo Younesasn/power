@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../admin/classes/Contact.php';
+require_once __DIR__ . '/../classes/Contact.php';
 require_once __DIR__ . '/../functions/error.php';
 require_once __DIR__ . '/../functions/succes.php';
 
@@ -8,20 +8,12 @@ if (isset($_POST['send'])) {
         header('Location: ../contact.php?error=' . USER_EMPTY);
         exit;
     }
-
-    [
-        'first_name' => $firstName,
-        'last_name' => $lastName,
-        'email' => $email,
-        'object' => $object,
-        'text' => $text
-    ] = $_POST;
-
+    
     try {
-        $insertContact = new Contact();
-        $insertContact = $insertContact->insertContact($firstName, $lastName, $email, $object, $text);
+        $contact = new Contact($_POST);
+        $contact->insertContact();
         header('Location: ../contact.php?succes=' . FORM_SENT);
-    } catch (Exception $e) {
+    } catch (InvalidArgumentException $e) {
         echo $e->getMessage();
         exit;
     }

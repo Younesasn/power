@@ -1,9 +1,8 @@
 <?php
 require_once 'layout/head.php';
-require_once 'classes/Contact.php';
+require_once '../classes/Contact.php';
 
-$contacts = new Contact();
-$contacts = $contacts->getContacts();
+$contacts = Contact::getContacts();
 ?>
 <div class="wrapper">
 	<?php require_once 'layout/sidebar.php'; ?>

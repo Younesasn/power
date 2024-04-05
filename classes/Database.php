@@ -7,7 +7,7 @@ class Database
      *
      * @return PDO
      */
-    public function getConnexion(): PDO
+    public static function getConnection(): PDO
     {
         [
             'DB_HOST' => $db_host,

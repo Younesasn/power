@@ -1,10 +1,8 @@
 <?php
 require_once 'classes/Serie.php';
-require_once 'functions/error.php'; 
-require_once 'functions/succes.php';
+require_once 'classes/Notification.php';
 
-$series = new Serie;
-$series = $series->getSeries();
+$series = Serie::getSeries();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -83,12 +81,12 @@ $series = $series->getSeries();
         </nav>
         <?php
         if (isset($_GET['error'])) {
-            $errorMsg = getErrorMessage(intval($_GET['error']));
+            $errorMsg = Notification::getErrorMessageLogin(intval($_GET['error']));
             require_once 'templates/error_notification.php';
         }
 
         if (isset($_GET['succes'])) {
-            $succesMsg = getsuccesMessage(intval($_GET['succes']));
+            $succesMsg = Notification::getSuccesMessageContact(intval($_GET['succes']));
             require_once 'templates/succes_notification.php';
         }
         ?>
