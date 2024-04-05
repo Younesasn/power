@@ -2,6 +2,7 @@
 session_start();
 if (!isset($_SESSION['useradmin']) && !isset($_SESSION['password'])) {
 	header('Location: ../sign-in.php');
+	exit;
 }
 ?>
 <!DOCTYPE html>

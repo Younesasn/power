@@ -7,7 +7,7 @@ require_once 'layout/head.php';
     <div class="container">
         <div class="row text-center">
             <h2 class="mt-4 mb-0">Contact</h2>
-            <form action="data/contact_traitement.php" method="POST" class="row g-3">
+            <form action="process/contact_process.php" method="POST" class="row g-3">
                 <div class="col-md-6">
                     <input type="text" class="form-control" name="first_name" placeholder="Nom" required>
                 </div>

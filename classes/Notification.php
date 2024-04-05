@@ -2,9 +2,9 @@
 
 class Notification
 {
-    private const CONTACT_SENT = 1;
-    private const USER_INVALID = 1;
-    private const USER_EMPTY = 2;
+    public const CONTACT_SENT = 1;
+    public const USER_INVALID = 2;
+    public const USER_EMPTY = 3;
     public static function getSuccesMessageContact(int $code): string
     {
         $msg = '';
@@ -13,6 +13,7 @@ class Notification
             case self::CONTACT_SENT:
                 $msg = "Votre demande sera traité dans les 48h !";
                 break;
+            // Add default
         }
         return $msg;
     }
@@ -28,6 +29,7 @@ class Notification
             case self::USER_EMPTY:
                 $msg = "Veuillez remplir les champs ci-dessous";
                 break;
+            // Add default
         }
         return $msg;
     }

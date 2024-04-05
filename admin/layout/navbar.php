@@ -154,7 +154,7 @@
 				<div class="dropdown-menu dropdown-menu-end">
 					<a class="dropdown-item" href="pages-profile.php"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
 					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="../data/logout.php">Log out</a>
+					<a class="dropdown-item" href="../process/logout.php">Log out</a>
 				</div>
 			</li>
 		</ul>

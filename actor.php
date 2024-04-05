@@ -20,7 +20,7 @@ if ($actor === null) {
             <h2 class="my-4 text-center"><?php echo $actor['first_name_actors'] . ' ' . $actor['last_name_actors']; ?></h2>
             <div class="col-lg-6 bg-secondary">
                 <div class="mb-4 text-center">
-                    <img src="<?php echo $actor['picture_actors']; ?>" alt="" class="mt-2 img-fluid">
+                    <img src="uploads/actors/<?php echo $actor['picture_actors']; ?>" alt="" class="mt-2 img-fluid">
                 </div>
                 <div class="">
                     <div>

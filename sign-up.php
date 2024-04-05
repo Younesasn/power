@@ -15,7 +15,7 @@
 					<div class="card">
 						<div class="card-body">
 							<div class="m-sm-3">
-								<form method="POST" action="data/signup_traitement.php">
+								<form method="POST" action="process/signup_process.php">
 									<div class="row">
 										<div class="mb-3 col-lg-6">
 											<label class="form-label">First name</label>
@@ -26,7 +26,7 @@
 											<input class="form-control form-control-lg" type="text" name="last_name" placeholder="Enter your name" />
 										</div>
 									</div>
-									<div class="mb-3">
+									<div class="mb-3">	
 										<label class="form-label">Email</label>
 										<input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your email" />
 									</div>

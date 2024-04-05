@@ -14,8 +14,12 @@ class Contact
      */
     public function __construct(private array $data)
     {
-        if (!$this->isContactFormValid()) {
-            throw new RequiredFieldsException(' ');
+        if (!$this->hasRequiredFields()) {
+            throw new RequiredFieldsException();
+        }
+
+        if (!$this->isEmailValid()) {
+            throw new InvalidEmailException();
         }
     }
 
@@ -26,7 +30,7 @@ class Contact
      * @return boolean
      * @throws InvalidEmailException
      */
-    private function isContactFormValid(): bool
+    private function hasRequiredFields(): bool
     {
         foreach (self::REQUIRED_FIELDS as $field) {
             // Si non défini, ou bien défini mais vide
@@ -35,8 +39,12 @@ class Contact
             }
         }
 
+        return true;
+    }
+
+    private function isEmailValid(): bool {
         if (filter_var($this->data['email'], FILTER_VALIDATE_EMAIL) === false) {
-            throw new InvalidEmailException();
+            return false;
         }
 
         return true;

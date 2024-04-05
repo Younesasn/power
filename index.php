@@ -57,7 +57,7 @@ require_once 'layout/head.php';
                 <div class="col-lg-6 mt-4">
                     <div class="card text-center">
                         <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                            <img src="<?php echo $serie['picture_series']; ?>" class="img-fluid" />
+                            <img src="uploads/series/<?php echo $serie['picture_series']; ?>" class="img-fluid" />
                             <a href="serie.php?id=<?php echo $serie['id_series']; ?>">
                                 <div class="mask"></div>
                             </a>

@@ -1,6 +1,5 @@
 <?php 
 require_once 'layout/head.php'; 
-require_once 'data/admin_traitement.php';
 
 session_start();
 if(isset($_SESSION['useradmin']) && isset($_SESSION['password'])) {
@@ -23,7 +22,7 @@ if(isset($_SESSION['useradmin']) && isset($_SESSION['password'])) {
 					<div class="card">
 						<div class="card-body">
 							<div class="m-sm-3">
-								<form method="POST" action="data/admin_traitement.php">
+								<form method="POST" action="process/admin_process.php">
 									<div class="mb-3">
 										<label class="form-label">User Admin</label>
 										<input class="form-control form-control-lg" type="text" id="useradmin" name="useradmin" placeholder="Enter your user admin" />

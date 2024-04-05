@@ -16,7 +16,7 @@ $actors = Actor::getActorsByIdSeries();
                 <div class="col-lg-4">
                     <div class="card mb-4">
                         <div class="card-body text-center">
-                            <img src="<?php echo $actor['picture_round_actors']; ?>" alt="avatar" class="rounded-circle img-fluid" style="width: 150px; height: 150px;">
+                            <img src="uploads/actors/picture_round/<?php echo $actor['picture_round_actors']; ?>" alt="avatar" class="rounded-circle img-fluid" style="width: 150px; height: 150px;">
                             <h5 class="mt-3 mb-0"><?php echo $actor['first_name_actors'] . ' ' . $actor['last_name_actors']; ?></h5>
                             <p class="text-muted mb-1"><?php echo $actor['name_occupations']; ?></p>
                             <div class="d-flex justify-content-center mb-2 mt-3">

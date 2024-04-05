@@ -1,11 +1,11 @@
 <?php
 require_once 'Database.php';
-require_once 'RequiredFieldsException.php';
+// require_once 'RequiredFieldsException.php';
 
 class Authentification
 {
 
-    private const REQUIRED_FIELDS = ['userAdmin', 'password'];
+    private const REQUIRED_FIELDS = ['useradmin', 'password'];
 
     /**
      * @param array $data Données du formulaire
@@ -13,7 +13,7 @@ class Authentification
      */
     public function __construct(private array $data)
     {
-        if (!$this->isSignInFormValid()) {
+        if (!$this->hasRequiredFields()) {
             throw new RequiredFieldsException();
         }
     }
@@ -23,9 +23,8 @@ class Authentification
      *
      * @param array $data
      * @return boolean
-     * @throws InvalidEmailException
      */
-    private function isSignInFormValid(): bool
+    private function hasRequiredFields(): bool
     {
         foreach (self::REQUIRED_FIELDS as $field) {
             // Si non défini, ou bien défini mais vide
@@ -44,7 +43,7 @@ class Authentification
             'password' => $password
         ] = $this->data;
 
-        $passwordHashed = password_hash($password, PASSWORD_BCRYPT);
+        // $passwordHashed = password_hash($password, PASSWORD_BCRYPT);
         $sql = "SELECT * FROM admin WHERE username_admin = :username AND password_admin = :password";
         $stmt = Database::getConnection()->prepare($sql);
         $stmt->execute(
