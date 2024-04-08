@@ -4,7 +4,7 @@ require_once 'layout/head.php';
 require_once 'classes/Actor.php';
 
 $id = $_GET['id'];
-$actor = Actor::getActor($id, Actor::getActorsByIdSeries());
+$actor = Actor::getActor($id, Actor::getActors());
 
 if ($actor === null) {
     http_response_code(404);
@@ -30,7 +30,7 @@ if ($actor === null) {
                         <p>Date de naissance : <?php echo $actor['date_birth_actors']; ?></p>
                     </div>
                     <div>
-                        <p>Occupation : <?php echo $actor['name_occupations']; ?></p>
+                        <p>Occupation : <?php echo $actor['occupation_actors']; ?></p>
                         <p>État : <?php echo $actor['status_actors']; ?></p>
                     </div>
                 </div>

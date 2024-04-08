@@ -1,6 +1,6 @@
 <?php
 require_once 'Database.php';
-// require_once 'RequiredFieldsException.php';
+require_once 'RequiredFieldsException.php';
 
 class Authentification
 {
@@ -36,22 +36,28 @@ class Authentification
         return true;
     }
 
-    public function getAuthAdmin(): array
+    /**
+     * Méthode qui détermine si la requète de connexion est true ou false
+     *
+     * @return boolean
+     * @throws PDOException
+     */
+    public function getAuthAdmin(): bool
     {
         [
             'useradmin' => $useradmin,
             'password' => $password
         ] = $this->data;
 
-        // $passwordHashed = password_hash($password, PASSWORD_BCRYPT);
-        $sql = "SELECT * FROM admin WHERE username_admin = :username AND password_admin = :password";
+        $sql = "SELECT * FROM admin WHERE username_admin = :username";
         $stmt = Database::getConnection()->prepare($sql);
         $stmt->execute(
-            [
-                'username' => $useradmin,
-                'password' => $password
-            ]
-        );
-        return $stmt->fetchAll();
+            ['username' => $useradmin]);
+        $query = $stmt->fetch();
+        
+        if (!password_verify($password, $query['password_admin'])) {
+            return false;
+        }
+        return true;
     }
 }

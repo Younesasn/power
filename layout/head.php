@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'classes/Serie.php';
 require_once 'classes/Notification.php';
 
@@ -65,28 +66,32 @@ $series = Serie::getSeries();
                 </div>
                 <div class="collapse navbar-collapse col-lg-4 justify-content-end" id="navbarNav">
                     <ul class="navbar-nav">
+                        <?php if(!isset($_SESSION['useradmin'])) { ?>
                         <li class="nav-item">
                             <a href="sign-up.php" class="nav-link active">
                                 Inscription
                             </a>
                         </li>
+                        <?php } ?>
+                        <?php if(isset($_SESSION['useradmin'])) { ?>
                         <li class="nav-item">
                             <a href="sign-in.php" class="nav-link active">
                                 Admin
                             </a>
                         </li>
+                        <?php } ?>
                     </ul>
                 </div>
             </div>
         </nav>
         <?php
         if (isset($_GET['error'])) {
-            $errorMsg = Notification::getErrorMessageLogin(intval($_GET['error']));
+            $errorMsg = Notification::getErrorMessage(intval($_GET['error']));
             require_once 'templates/error_notification.php';
         }
 
         if (isset($_GET['succes'])) {
-            $succesMsg = Notification::getSuccesMessageContact(intval($_GET['succes']));
+            $succesMsg = Notification::getSuccesMessage(intval($_GET['succes']));
             require_once 'templates/succes_notification.php';
         }
         ?>

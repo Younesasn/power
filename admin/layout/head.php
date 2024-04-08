@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if (!isset($_SESSION['useradmin']) && !isset($_SESSION['password'])) {
+if (!isset($_SESSION['useradmin'])) {
 	header('Location: ../sign-in.php');
 	exit;
 }
@@ -16,7 +16,7 @@ if (!isset($_SESSION['useradmin']) && !isset($_SESSION['password'])) {
 	<meta name="author" content="You-Dev">
 
 	<title>Power Admin</title>
-
+	<link href="../assets/css/mdb.min.css" rel="stylesheet">
 	<link href="assets/css/app.css" rel="stylesheet">
 	<link rel="stylesheet" href="../assets/css/style.css">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">

@@ -1,7 +1,9 @@
 <?php
 require_once 'layout/head.php';
 require_once '../classes/Contact.php';
+require_once '../classes/Actor.php';
 
+$actors = Actor::getActorsWithLimit();
 $latestContacts = Contact::getLatestContacts();
 ?>
 <div class="wrapper">
@@ -176,6 +178,39 @@ $latestContacts = Contact::getLatestContacts();
 							</div>
 						</div>
 					</div>
+					<div class="col-12 col-lg-8 col-xxl-9 d-flex">
+						<div class="card flex-fill">
+							<div class="card-header">
+
+								<h5 class="card-title mb-0">Derniers acteurs</h5>
+							</div>
+							<table class="table table-hover my-0">
+								<thead>
+									<tr>
+										<th>Actors</th>
+										<th class="d-none d-xl-table-cell">Series</th>
+										<th class="d-none d-xl-table-cell">Occupations</th>
+										<th class="d-none d-xl-table-cell">Date</th>
+										<th>Status</th>
+										<th class="d-none d-md-table-cell"></th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php foreach ($actors as $actor) { ?>
+										<tr>
+											<td><?php echo $actor['first_name_actors'] . ' ' . $actor['last_name_actors'] ?></td>
+											<td class="d-none d-xl-table-cell"><?php echo $actor['name_series'] ?></td>
+											<td class="d-none d-xl-table-cell"><?php echo $actor['occupation_actors'] ?></td>
+											<td><span class="badge bg-success"><?php echo $actor['date'] ?></span></td>
+											<td class="d-none d-md-table-cell"><?php echo $actor['status_actors'] ?></td>
+										</tr>
+									<?php } ?>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="row">
 					<div class="col-12 col-md-12 col-xxl-6 d-flex order-3 order-xxl-2">
 						<div class="card flex-fill w-100">
 							<div class="card-header">
@@ -200,86 +235,6 @@ $latestContacts = Contact::getLatestContacts();
 									</div>
 								</div>
 							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-12 col-lg-8 col-xxl-9 d-flex">
-						<div class="card flex-fill">
-							<div class="card-header">
-
-								<h5 class="card-title mb-0">Latest Projects</h5>
-							</div>
-							<table class="table table-hover my-0">
-								<thead>
-									<tr>
-										<th>Name</th>
-										<th class="d-none d-xl-table-cell">Start Date</th>
-										<th class="d-none d-xl-table-cell">End Date</th>
-										<th>Status</th>
-										<th class="d-none d-md-table-cell">Assignee</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>Project Apollo</td>
-										<td class="d-none d-xl-table-cell">01/01/2023</td>
-										<td class="d-none d-xl-table-cell">31/06/2023</td>
-										<td><span class="badge bg-success">Done</span></td>
-										<td class="d-none d-md-table-cell">Vanessa Tucker</td>
-									</tr>
-									<tr>
-										<td>Project Fireball</td>
-										<td class="d-none d-xl-table-cell">01/01/2023</td>
-										<td class="d-none d-xl-table-cell">31/06/2023</td>
-										<td><span class="badge bg-danger">Cancelled</span></td>
-										<td class="d-none d-md-table-cell">William Harris</td>
-									</tr>
-									<tr>
-										<td>Project Hades</td>
-										<td class="d-none d-xl-table-cell">01/01/2023</td>
-										<td class="d-none d-xl-table-cell">31/06/2023</td>
-										<td><span class="badge bg-success">Done</span></td>
-										<td class="d-none d-md-table-cell">Sharon Lessman</td>
-									</tr>
-									<tr>
-										<td>Project Nitro</td>
-										<td class="d-none d-xl-table-cell">01/01/2023</td>
-										<td class="d-none d-xl-table-cell">31/06/2023</td>
-										<td><span class="badge bg-warning">In progress</span></td>
-										<td class="d-none d-md-table-cell">Vanessa Tucker</td>
-									</tr>
-									<tr>
-										<td>Project Phoenix</td>
-										<td class="d-none d-xl-table-cell">01/01/2023</td>
-										<td class="d-none d-xl-table-cell">31/06/2023</td>
-										<td><span class="badge bg-success">Done</span></td>
-										<td class="d-none d-md-table-cell">William Harris</td>
-									</tr>
-									<tr>
-										<td>Project X</td>
-										<td class="d-none d-xl-table-cell">01/01/2023</td>
-										<td class="d-none d-xl-table-cell">31/06/2023</td>
-										<td><span class="badge bg-success">Done</span></td>
-										<td class="d-none d-md-table-cell">Sharon Lessman</td>
-									</tr>
-									<tr>
-										<td>Project Romeo</td>
-										<td class="d-none d-xl-table-cell">01/01/2023</td>
-										<td class="d-none d-xl-table-cell">31/06/2023</td>
-										<td><span class="badge bg-success">Done</span></td>
-										<td class="d-none d-md-table-cell">Christina Mason</td>
-									</tr>
-									<tr>
-										<td>Project Wombat</td>
-										<td class="d-none d-xl-table-cell">01/01/2023</td>
-										<td class="d-none d-xl-table-cell">31/06/2023</td>
-										<td><span class="badge bg-warning">In progress</span></td>
-										<td class="d-none d-md-table-cell">William Harris</td>
-									</tr>
-								</tbody>
-							</table>
 						</div>
 					</div>
 					<div class="col-12 col-lg-4 col-xxl-3 d-flex">

@@ -1,8 +1,7 @@
 <?php 
 require_once 'layout/head.php'; 
 
-session_start();
-if(isset($_SESSION['useradmin']) && isset($_SESSION['password'])) {
+if(isset($_SESSION['useradmin'])) {
 	header('Location: admin/index.php');
 }
 ?>

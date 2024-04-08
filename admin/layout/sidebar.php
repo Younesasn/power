@@ -47,7 +47,7 @@
 
             <li class="sidebar-item">
                 <a class="sidebar-link" href="../index.php">
-                    <i class="align-middle" data-feather="compass"></i> <span class="align-middle">Power Site</span>
+                    <i class="align-middle" data-feather="compass"></i> <span class="align-middle">Power Universe</span>
                 </a>
             </li>
 

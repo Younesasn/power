@@ -28,9 +28,9 @@
       "type": "php",
       "request": "launch",
       "port": 9003,
-      "pathMappings": {
-        "/var/www/html": "${workspaceRoot}"
-      }
+      // "pathMappings": {
+      //   "/var/www/html": "${workspaceRoot}"
+      // }
     }
   ]
 }

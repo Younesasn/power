@@ -1,14 +1,31 @@
-<?php 
+<?php
 
 require_once 'Database.php';
-class Actor {
+class Actor
+{
+
+    public static function getActors(): array
+    {
+        $sql = "SELECT *, DATE_FORMAT(date_add_actors, '%d/%m/%Y') AS date FROM actors AS a 
+        INNER JOIN actors_series AS a_s ON a.id_actors = a_s.id_actors 
+        INNER JOIN series AS s ON a_s.id_series = s.id_series";
+        $requete = Database::getConnection()->query($sql);
+        return $requete->fetchAll();
+    }
+
+    public static function getActorsWithLimit(): array
+    {
+        $sql = "SELECT *, DATE_FORMAT(date_add_actors, '%d/%m/%Y') AS date FROM actors AS a 
+        INNER JOIN actors_series AS a_s ON a.id_actors = a_s.id_actors 
+        INNER JOIN series AS s ON a_s.id_series = s.id_series ORDER BY date DESC LIMIT 6";
+        $requete = Database::getConnection()->query($sql);
+        return $requete->fetchAll();
+    }
     public static function getActorsByIdSeries(): array
     {
-        $sql = "SELECT * FROM occupations AS o 
-            INNER JOIN actors_occupations AS a_o ON o.id_occupations = a_o.id_occupations 
-            INNER JOIN actors AS a ON a_o.id_actors = a.id_actors 
-            INNER JOIN actors_series AS a_s ON a.id_actors = a_s.id_actors 
-            INNER JOIN series AS s ON a_s.id_series = s.id_series WHERE a_s.id_series = :id";
+        $sql = "SELECT *, DATE_FORMAT(date_add_actors, '%d/%m/%Y') AS date FROM actors AS a 
+        INNER JOIN actors_series AS a_s ON a.id_actors = a_s.id_actors 
+        INNER JOIN series AS s ON a_s.id_series = s.id_series WHERE a_s.id_series = :id";
         $requete = Database::getConnection()->prepare($sql);
         $requete->bindValue('id', $_GET['id']);
         $requete->execute();

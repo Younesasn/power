@@ -160,3 +160,15 @@
 		</ul>
 	</div>
 </nav>
+<?php
+require_once '../classes/Notification.php';
+
+if (isset($_GET['error'])) {
+	$errorMsg = Notification::getErrorMessage(intval($_GET['error']));
+	require_once '../templates/error_notification.php';
+}
+
+if (isset($_GET['succes'])) {
+	$succesMsg = Notification::getSuccesMessage(intval($_GET['succes']));
+	require_once '../templates/succes_notification.php';
+}
