@@ -5,6 +5,7 @@ require_once '../classes/Upload.php';
 require_once '../classes/Utils.php';
 require_once '../classes/Notification.php';
 
+
 // si intrusion dans upload_process via le lien, je rediriges
 if (empty($_FILES)) {
     header('Location: ../admin/upload.php');
@@ -16,6 +17,10 @@ try {
     $upload = new Upload($_POST, $_FILES);
 } catch (RequiredFieldsException $e) {
     header('Location: ../admin/upload.php?error=' . Notification::FIELD_EMPTY);
+    exit;
+} catch (InvalidBirthdateException $e) {
+    header('Location: ../admin/upload.php?error=' . Notification::BIRTHDATE_INVALID);
+    exit;
 }
 
 // On extrait le fichier de $_FILES
@@ -62,6 +67,7 @@ try {
     ]);
 } catch (PDOException $e) {
     header('Location: ../admin/upload.php?error=' . Notification::ERROR_UPLOAD);
+    exit;
 }
 
 try {
@@ -71,6 +77,7 @@ try {
     $surname = $query->fetch();
 } catch (PDOException $e) {
     header('Location: ../admin/upload.php?error='. Notification::ERROR_UPLOAD);
+    exit;
 }
 
 try {
@@ -82,12 +89,7 @@ try {
     ]);
 } catch (PDOException $e) {
     header('Location: ../admin/upload.php?error='. Notification::ERROR_UPLOAD);
+    exit;
 }
 
 header('Location: ../admin/upload.php?succes=' . Notification::ADD_ACTOR);
-
-// var_dump($_FILES);
-// var_dump($fileBio) . '<br/>';
-// var_dump($filePdp) . '<br/>';
-// var_dump($path_actors) . '<br/>';
-// var_dump($path_actors_round) . '<br/>';

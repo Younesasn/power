@@ -1,7 +1,9 @@
 <?php
 
 require_once 'Database.php';
+require_once 'Utils.php';
 require_once 'RequiredFieldsException.php';
+require_once 'InvalidBirthdateException.php';
 
 class Upload
 {
@@ -13,6 +15,7 @@ class Upload
     /**
      * @param array $data Données du formulaire
      * @throws RequiredFieldsException si les données sont invalides
+     * @throws InvalidBirthdateException si la date n'est pas valide
      */
     public function __construct(private array $data, private array $files)
     {
@@ -20,7 +23,11 @@ class Upload
             throw new RequiredFieldsException();
         }
 
-        // Contrôle : Date (si n'égale pas ou si ne dépasse pas aujourd'hui)
+        if (!$this->hasBirthdateValid()) {
+            throw new InvalidBirthdateException();
+        }
+
+        // Contrôle :
         // File(si ce n'est pas une image, ...)
     }
 
@@ -36,6 +43,15 @@ class Upload
             if (!isset($this->files[$field]) || empty($this->files[$field])) {
                 return false;
             }
+        }
+
+        return true;
+    }
+
+    private function hasBirthdateValid(): bool
+    {
+        if ($this->data['birth_date'] > date('Y-m-d')) {
+            return false;
         }
 
         return true;

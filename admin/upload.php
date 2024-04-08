@@ -60,63 +60,56 @@ $series = Serie::getSeries();
 										<h5 class="card-title mb-0">Ajouter un acteur</h5>
 									</div>
 									<div class="card-body">
-										<form action="../process/upload_process.php" method="POST" enctype="multipart/form-data">
-											<div>
-												<label for="">Nom :</label>
-												<input class="form-control" type="text" name="last_name">
+										<form action="../process/upload_process.php" method="POST" enctype="multipart/form-data" class="row">
+											<div class="col-lg-6 mb-3">
+												<input class="form-control" type="text" name="last_name" placeholder="Nom">
 											</div>
-											<div>
-												<label for="">Prénom :</label>
-												<input class="form-control" type="text" name="first_name">
+											<div class="col-lg-6 mb-3">
+												<input class="form-control" type="text" name="first_name" placeholder="Prénom">
 											</div>
-											<div>
-												<label for="">Surnom :</label>
-												<input class="form-control" type="text" name="surname">
+											<div class="col-lg-6 mb-3">
+												<input class="form-control" type="text" name="surname" placeholder="Surnom">
 											</div>
-											<div>
-												<label for="">Date de naisssance :</label>
-												<!-- <input class="form-control" type="text" name="birth_date"> -->
-												<input id="startDate" class="form-control" type="date" name="birth_date" />
+											<div class="col-lg-6 mb-3">
+												<input id="startDate" class="form-control" type="date" name="birth_date" placeholder="Date de naisssance" />
 											</div>
-											<div>
-												<label for="">Citation</label>
-												<input class="form-control" type="text" name="quote">
+											<div class="col-lg-6 mb-3">
+												<input class="form-control" type="text" name="quote" placeholder="Citation">
 											</div>
-											<div>
-												<label for="">Description</label>
-												<textarea class="form-control" rows="2" name="text"></textarea>
+											<div class="col-lg-6">
+												<input type="text" name="occupation" class="form-control" placeholder="Occupation">
 											</div>
-											<div>
-												<label for="">Occupation</label>
-												<input type="text" name="occupation" class="form-control mb-3">
+
+											<div class="col-lg-12 mb-3">
+												<textarea class="form-control" rows="2" name="text" placeholder="Description"></textarea>
 											</div>
-											<div>
-												<label for="">État :</label>
-												<select class="form-select mb-3" name="status">
+											<div class="col-lg-6 mb-2">
+												<select class="form-select" name="status">
 													<option selected>En vie</option>
 													<option>Mort</option>
 												</select>
 											</div>
-											<div>
-												<label for="">Série : </label>
-												<select class="form-select mb-3" name="series">
+											<div class="col-lg-6 mb-2">
+												<select class="form-select" name="series">
 													<option selected>Choisir la série</option>
 													<?php foreach ($series as $serie) { ?>
 														<option value="<?php echo $serie['id_series'] ?>"><?php echo $serie['name_series'] ?></option>
 													<?php } ?>
 												</select>
 											</div>
-											<div>
+											<div class="col-lg-6">
 												<label for="">Photo pour biographie :</label>
 												<input class="form-control" type="file" name="file_bio">
 											</div>
-											<div>
+											<div class="col-lg-6">
 												<label for="">Photo pour profil :</label>
 												<input class="form-control" type="file" name="file_pdp">
 											</div>
-											<div class="">
-												<input type="reset" value="Effacer" class="btn btn-primary text-start">
-												<input type="submit" value="Envoyez" class="btn btn-primary text-end">
+											<div class="col-lg-6 mt-3">
+												<input type="reset" value="Effacer" class="btn btn-primary">
+											</div>
+											<div class="col-lg-6 mt-3 text-end">
+												<input type="submit" value="Envoyez" class="btn btn-primary ">
 											</div>
 										</form>
 									</div>
@@ -124,8 +117,8 @@ $series = Serie::getSeries();
 							</div>
 						</div>
 					</div>
-
 				</div>
+			</div>
 		</main>
 	</div>
 </div>

@@ -18,7 +18,7 @@ if ($actor === null) {
     <div class="container">
         <div class="row">
             <h2 class="my-4 text-center"><?php echo $actor['first_name_actors'] . ' ' . $actor['last_name_actors']; ?></h2>
-            <div class="col-lg-6 bg-secondary">
+            <div class="col-lg-6">
                 <div class="mb-4 text-center">
                     <img src="uploads/actors/<?php echo $actor['picture_actors']; ?>" alt="" class="mt-2 img-fluid">
                 </div>
@@ -36,7 +36,7 @@ if ($actor === null) {
                 </div>
             </div>
             <div class="col-lg-6">
-                <div class="mb4">
+                <div class="mb-4">
                     <p class="justify">"<?php echo $actor['quote_actors']; ?>"</p>
                     <p class="justify"><?php echo $actor['description_actors']; ?></p>
 

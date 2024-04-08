@@ -7,6 +7,7 @@ class Notification
     public const FIELD_EMPTY = 3;
     public const ADD_ACTOR = 4;
     public const ERROR_UPLOAD = 5;
+    public const BIRTHDATE_INVALID = 6;
     public static function getSuccesMessage(int $code): string
     {
         $msg = '';
@@ -34,6 +35,8 @@ class Notification
                 break;
             case self::ERROR_UPLOAD:
                 $msg = "L'upload a échoué, veuillez réessayer";
+            case self::BIRTHDATE_INVALID:
+                $msg = "Veuillez remplir une date de naissance valide";
             // Add default
         }
         return $msg;
