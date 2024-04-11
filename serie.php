@@ -4,6 +4,10 @@ require_once 'layout/head.php';
 require_once 'classes/Actor.php';
 
 $actors = Actor::getActorsByIdSeries();
+if (count($actors) == 0) {
+    // template no actor
+    exit;
+}
 ?>
 
 <section class="">
@@ -27,6 +31,7 @@ $actors = Actor::getActorsByIdSeries();
                 </div>
             <?php } ?>
         </div>
+    </div>
 </section>
 
 <?php require_once 'layout/foot.php';

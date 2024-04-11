@@ -3,7 +3,8 @@ require_once '../classes/Actor.php';
 require_once '../classes/Serie.php';
 require_once 'layout/head.php';
 
-$actors = Actor::getActorsWithLimit();
+$actorsLimited = Actor::getActorsWithLimit();
+$actors = Actor::getActors();
 $series = Serie::getSeries();
 ?>
 <div class="wrapper">
@@ -27,16 +28,16 @@ $series = Serie::getSeries();
 									<table class="table table-hover my-0">
 										<thead>
 											<tr>
-												<th>Actors</th>
-												<th class="d-none d-xl-table-cell">Series</th>
-												<th class="d-none d-xl-table-cell">Occupations</th>
+												<th>Acteur</th>
+												<th class="d-none d-xl-table-cell">Série</th>
+												<th class="d-none d-xl-table-cell">Occupation</th>
 												<th class="d-none d-xl-table-cell">Date</th>
-												<th>Status</th>
+												<th>État</th>
 												<th class="d-none d-md-table-cell"></th>
 											</tr>
 										</thead>
 										<tbody>
-											<?php foreach ($actors as $actor) { ?>
+											<?php foreach ($actorsLimited as $actor) { ?>
 												<tr>
 													<td><?php echo $actor['first_name_actors'] . ' ' . $actor['last_name_actors'] ?></td>
 													<td class="d-none d-xl-table-cell"><?php echo $actor['name_series'] ?></td>
@@ -52,7 +53,7 @@ $series = Serie::getSeries();
 						</div>
 					</div>
 
-					<div class="col-12">
+					<div class="col-6">
 						<div class="row">
 							<div class="col-12-lg">
 								<div class="card flex-fill">
@@ -60,7 +61,7 @@ $series = Serie::getSeries();
 										<h5 class="card-title mb-0">Ajouter un acteur</h5>
 									</div>
 									<div class="card-body">
-										<form action="../process/upload_process.php" method="POST" enctype="multipart/form-data" class="row">
+										<form action="../process/upload_actor_process.php" method="POST" enctype="multipart/form-data" class="row">
 											<div class="col-lg-6 mb-3">
 												<input class="form-control" type="text" name="last_name" placeholder="Nom">
 											</div>
@@ -113,6 +114,101 @@ $series = Serie::getSeries();
 											</div>
 										</form>
 									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-6">
+						<div class="col-12">
+							<div class="row">
+								<div class="col-12-lg">
+									<div class="card flex-fill">
+										<div class="card-header">
+											<h5 class="card-title mb-0">Ajouter une série</h5>
+										</div>
+										<div class="card-body">
+											<form action="../process/upload_serie_process.php" method="POST" enctype="multipart/form-data" class="row">
+												<div class="col-lg-6">
+													<input class="form-control" type="text" name="name_series" placeholder="Nom*">
+												</div>
+												<div class="col-lg-6">
+													<input class="form-control" type="file" name="file_series">
+												</div>
+												<div class="col-lg-6 mt-3">
+													<input type="reset" value="Effacer" class="btn btn-primary">
+												</div>
+												<div class="col-lg-6 mt-3 text-end">
+													<input type="submit" value="Envoyez" class="btn btn-primary ">
+												</div>
+												<div class="mt-3">
+													<p>* Attention : veillez à respecter la syntaxe (EX : Power Book V : Influence)</p>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-12">
+							<div class="row">
+								<div class="col-12-lg">
+									<div class="card flex-fill">
+										<div class="card-header">
+											<h5 class="card-title mb-0">Supprimer une série</h5>
+										</div>
+										<div class="card-body">
+											<form action="../process/delete_serie_process.php" method="POST" enctype="multipart/form-data" class="row">
+												<div class="col-lg-12 mb-2">
+													<select class="form-select" name="series">
+														<option selected>Choisir la série</option>
+														<?php foreach ($series as $serie) { ?>
+															<option value="<?php echo $serie['id_series'] ?>"><?php echo $serie['name_series'] ?></option>
+														<?php } ?>
+													</select>
+												</div>
+												<div class="col-12 mt-3 text-end">
+													<input type="submit" value="Supprimer" class="btn btn-primary">
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-12">
+						<div class="row">
+							<div class="col-lg-12 d-flex">
+								<div class="card flex-fill">
+									<div class="card-header">
+										<h5 class="card-title mb-0">Supprimer un acteur</h5>
+									</div>
+									<table class="table table-hover my-0">
+										<thead>
+											<tr>
+												<th>Acteur</th>
+												<th class="d-none d-xl-table-cell">Série</th>
+												<th class="d-none d-xl-table-cell">Occupation</th>
+												<th class="d-none d-xl-table-cell">Date</th>
+												<th>État</th>
+												<th class="d-none d-md-table-cell text-center">Supprimer</th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php foreach ($actors as $actor) { ?>
+												<tr>
+													<td><?php echo $actor['first_name_actors'] . ' ' . $actor['last_name_actors'] ?></td>
+													<td class="d-none d-xl-table-cell"><?php echo $actor['name_series'] ?></td>
+													<td class="d-none d-xl-table-cell"><?php echo $actor['occupation_actors'] ?></td>
+													<td><span class="badge bg-success"><?php echo $actor['date'] ?></span></td>
+													<td class="d-none d-md-table-cell"><?php echo $actor['status_actors'] ?></td>
+													<td class="d-none d-md-table-cell text-center"><a href="../process/delete_actor_process.php?id=<?php echo $actor['id_actors']; ?>" title="Supprimer"><i class="align-middle" data-feather="x"></i></a></td>
+												</tr>
+											<?php } ?>
+										</tbody>
+									</table>
 								</div>
 							</div>
 						</div>

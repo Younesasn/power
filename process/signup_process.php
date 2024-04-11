@@ -11,6 +11,9 @@ try {
     $insertUser = new User($_POST);
     $insertUser->insertUser();
     header('Location: ../index.php');
+} catch (RequiredFieldsException $e) {
+    header('Location: ../sign-up.php?error=' . Notification::FIELD_EMPTY);
+    exit;
 } catch (PDOException $e) {
     header('Location: ../sign-up.php?error=' . Notification::FIELD_EMPTY);
     exit;

@@ -39,7 +39,7 @@ $contacts = Contact::getContacts();
 													<td class="d-none d-xl-table-cell"><?php echo $contact['email_contacts']; ?></td>
 													<td><span class="badge text-bg-secondary"><?php echo $contact['date']; ?></span></td>
 													<td class="d-none d-xl-table-cell"><?php echo $contact['object_contacts']; ?></td>
-													<th class="d-none d-md-table-cell text-center"><a href="messages.php?id=<?php echo $contact['id_contacts']; ?>"><i class="align-middle" data-feather="arrow-right"></i></a></th>
+													<td class="d-none d-md-table-cell text-center"><a href="messages.php?id=<?php echo $contact['id_contacts']; ?>"><i class="align-middle" data-feather="arrow-right"></i></a></td>
 												</tr>
 											<?php } ?>
 										</tbody>

@@ -10,7 +10,7 @@ class User
 
     /**
      * @param array $data Données du formulaire
-     * @throws InvalidArgumentException si les données sont invalides
+     * @throws RequiredFieldsException si les données sont invalides
      */
     public function __construct(private array $data)
     {

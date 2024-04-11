@@ -24,4 +24,11 @@ class Database
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ]);
     }
+
+    public static function select(string $table): array
+    {
+        $sql = "SELECT * FROM $table";
+        $stmt = Database::getConnection()->query($sql);
+        return $stmt->fetchAll();
+    }
 }

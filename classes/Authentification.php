@@ -42,7 +42,7 @@ class Authentification
      * @return boolean
      * @throws PDOException
      */
-    public function getAuthAdmin(): bool
+    public function authAdmin(): bool
     {
         [
             'useradmin' => $useradmin,
@@ -51,8 +51,7 @@ class Authentification
 
         $sql = "SELECT * FROM admin WHERE username_admin = :username";
         $stmt = Database::getConnection()->prepare($sql);
-        $stmt->execute(
-            ['username' => $useradmin]);
+        $stmt->execute(['username' => $useradmin]);
         $query = $stmt->fetch();
         
         if (!password_verify($password, $query['password_admin'])) {

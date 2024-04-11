@@ -3,7 +3,8 @@ session_start();
 require_once 'classes/Serie.php';
 require_once 'classes/Notification.php';
 
-$series = Serie::getSeries();
+// $series = Serie::getSeries();
+$series = Database::select('series');
 ?>
 <!DOCTYPE html>
 <html lang="fr">

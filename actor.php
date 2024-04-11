@@ -27,7 +27,7 @@ if ($actor === null) {
                         <p>Nom : <?php echo $actor['last_name_actors']; ?></p>
                         <p>Prénom : <?php echo $actor['first_name_actors']; ?></p>
                         <p>Surnom : <?php echo $actor['surname_actors']; ?></p>
-                        <p>Date de naissance : <?php echo $actor['date_birth_actors']; ?></p>
+                        <p>Date de naissance : <?php echo $actor['date_birth']; ?></p>
                     </div>
                     <div>
                         <p>Occupation : <?php echo $actor['occupation_actors']; ?></p>

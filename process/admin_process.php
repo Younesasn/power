@@ -2,16 +2,19 @@
 require_once '../classes/Authentification.php';
 require_once '../classes/Notification.php';
 
-if (empty($_POST)) {
+if (!isset($_POST) || empty($_POST)) {
     header('Location: ../sign-in.php');
     exit;
 }
 
 try {
     $admin = new Authentification($_POST);
-    $admin = $admin->getAuthAdmin();
-} catch (PDOException $e) {
+    $admin = $admin->authAdmin();
+} catch (RequiredFieldsException $e) {
     header('Location: ../sign-in.php?error=' . Notification::FIELD_EMPTY);
+    exit;
+} catch (PDOException $e) {
+    header('Location: ../sign-in.php?error=' . Notification::ERROR_DATABASE);
     exit;
 }
 
