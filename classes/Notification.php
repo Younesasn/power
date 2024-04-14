@@ -14,6 +14,9 @@ class Notification
     public const NOT_FOUND_ACTOR = 10;
     public const DELETE_ACTOR = 11;
     public const ERROR_DELETE_ACTOR = 12;
+    public const EMPTY_SEARCH = 13;
+    public const SUCCES_MODIFY = 14;
+    public const ERROR_MODIFY = 15;
 
     public static function getSuccesMessage(int $code): string
     {
@@ -34,6 +37,9 @@ class Notification
                 break;
             case self::DELETE_ACTOR:
                 $msg = "Acteur supprimé !";
+                break;
+            case self::SUCCES_MODIFY:
+                $msg = "Acteur modifié !";
                 break;
         }
         return $msg;
@@ -57,13 +63,20 @@ class Notification
                 $msg = "Lors de la connexion à la base de donnée";
                 break;
             case self::ERROR_DELETE_SERIE:
-                $msg = "Veuillez sélectionner une série à supprimer";
+                $msg = "Lors de la suppression de la série";
                 break;
             case self::NOT_FOUND_ACTOR:
                 $msg = "Acteur non trouvé";
                 break;
             case self::ERROR_DELETE_ACTOR:
                 $msg = "Lors de la suppression de l'acteur";
+                break;
+            case self::EMPTY_SEARCH:
+                $msg = "Insérer un acteur";
+                break;
+            case self::ERROR_MODIFY:
+                $msg = "Lors de la modification de l'acteur";
+                break;
                 // Add default
         }
         return $msg;

@@ -3,9 +3,12 @@ require_once '../classes/Actor.php';
 require_once '../classes/Serie.php';
 require_once 'layout/head.php';
 
-$actorsLimited = Actor::getActorsWithLimit();
-$actors = Actor::getActors();
+$actors = Actor::getActorsWithLimit(0, 20);
 $series = Serie::getSeries();
+$actors_series = Actor::getActorsWithoutJoin();
+
+// var_dump($actor);
+// exit;
 ?>
 <div class="wrapper">
 	<?php require_once 'layout/sidebar.php'; ?>
@@ -18,41 +21,6 @@ $series = Serie::getSeries();
 				<h1 class="h3 mb-3">Upload</h1>
 
 				<div class="row">
-					<div class="col-12">
-						<div class="row">
-							<div class="col-lg-12 d-flex">
-								<div class="card flex-fill">
-									<div class="card-header">
-										<h5 class="card-title mb-0">Latest Upload</h5>
-									</div>
-									<table class="table table-hover my-0">
-										<thead>
-											<tr>
-												<th>Acteur</th>
-												<th class="d-none d-xl-table-cell">Série</th>
-												<th class="d-none d-xl-table-cell">Occupation</th>
-												<th class="d-none d-xl-table-cell">Date</th>
-												<th>État</th>
-												<th class="d-none d-md-table-cell"></th>
-											</tr>
-										</thead>
-										<tbody>
-											<?php foreach ($actorsLimited as $actor) { ?>
-												<tr>
-													<td><?php echo $actor['first_name_actors'] . ' ' . $actor['last_name_actors'] ?></td>
-													<td class="d-none d-xl-table-cell"><?php echo $actor['name_series'] ?></td>
-													<td class="d-none d-xl-table-cell"><?php echo $actor['occupation_actors'] ?></td>
-													<td><span class="badge bg-success"><?php echo $actor['date'] ?></span></td>
-													<td class="d-none d-md-table-cell"><?php echo $actor['status_actors'] ?></td>
-												</tr>
-											<?php } ?>
-										</tbody>
-									</table>
-								</div>
-							</div>
-						</div>
-					</div>
-
 					<div class="col-6">
 						<div class="row">
 							<div class="col-12-lg">
@@ -90,6 +58,7 @@ $series = Serie::getSeries();
 													<option>Mort</option>
 												</select>
 											</div>
+
 											<div class="col-lg-6 mb-2">
 												<select class="form-select" name="series">
 													<option selected>Choisir la série</option>
@@ -98,6 +67,7 @@ $series = Serie::getSeries();
 													<?php } ?>
 												</select>
 											</div>
+
 											<div class="col-lg-6">
 												<label for="">Photo pour biographie :</label>
 												<input class="form-control" type="file" name="file_bio">
@@ -178,7 +148,7 @@ $series = Serie::getSeries();
 							</div>
 						</div>
 					</div>
-					<div class="col-12">
+					<div class="col-8">
 						<div class="row">
 							<div class="col-lg-12 d-flex">
 								<div class="card flex-fill">
@@ -193,6 +163,7 @@ $series = Serie::getSeries();
 												<th class="d-none d-xl-table-cell">Occupation</th>
 												<th class="d-none d-xl-table-cell">Date</th>
 												<th>État</th>
+												<th class="d-none d-md-table-cell text-center">Modifier</th>
 												<th class="d-none d-md-table-cell text-center">Supprimer</th>
 											</tr>
 										</thead>
@@ -204,11 +175,46 @@ $series = Serie::getSeries();
 													<td class="d-none d-xl-table-cell"><?php echo $actor['occupation_actors'] ?></td>
 													<td><span class="badge bg-success"><?php echo $actor['date'] ?></span></td>
 													<td class="d-none d-md-table-cell"><?php echo $actor['status_actors'] ?></td>
+													<td class="d-none d-md-table-cell text-center"><a href="modify_actor.php?id=<?php echo $actor['id_actors']; ?>" title="Modifier"><i class="align-middle" data-feather="edit"></i></a></td>
 													<td class="d-none d-md-table-cell text-center"><a href="../process/delete_actor_process.php?id=<?php echo $actor['id_actors']; ?>" title="Supprimer"><i class="align-middle" data-feather="x"></i></a></td>
 												</tr>
 											<?php } ?>
 										</tbody>
 									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="row">
+							<div class="col-12-lg">
+								<div class="card flex-fill">
+									<div class="card-header">
+										<h5 class="card-title mb-0">Ajouter un acteur dans une série</h5>
+									</div>
+									<div class="card-body">
+										<form action="../process/actor_serie_process.php" method="POST" enctype="multipart/form-data" class="row">
+											<div class="col-lg-12 mb-3">
+												<select class="form-select" name="actor">
+													<option selected>Choisir l'acteur</option>
+													<?php foreach ($actors_series as $item) { ?>
+														<option value="<?php echo $item['id_actors'] ?>"><?php echo $item['first_name_actors'] . ' ' . $item['last_name_actors']?></option>
+													<?php } ?>
+												</select>
+											</div>
+											<div class="col-lg-12 mb-3">
+												<select class="form-select" name="serie">
+													<option selected>Choisir la série</option>
+													<?php foreach ($series as $serie) { ?>
+														<option value="<?php echo $serie['id_series'] ?>"><?php echo $serie['name_series'] ?></option>
+													<?php } ?>
+												</select>
+											</div>
+											<div class="col-lg-12 mt-3 text-end">
+												<input type="submit" value="Supprimer" class="btn btn-primary ">
+											</div>
+										</form>
+									</div>
 								</div>
 							</div>
 						</div>

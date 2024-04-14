@@ -79,6 +79,13 @@ class Contact
         return $query->fetchAll();
     }
 
+    public static function getContactsWithLimit(): array
+    {
+        $sql = 'SELECT *, DATE_FORMAT(date_contacts, "%d/%m/%Y") AS date FROM contacts ORDER BY date_contacts DESC LIMIT 0, 14';
+        $query = Database::getConnection()->query($sql);
+        return $query->fetchAll();
+    }
+
     public static function getLatestContacts(): array
     {
         $sql = 'SELECT *, DATE_FORMAT(date_contacts, "%d/%m/%Y") AS date FROM contacts ORDER BY date_contacts DESC LIMIT 4';

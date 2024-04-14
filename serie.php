@@ -3,17 +3,25 @@ $title = 'Power Universe';
 require_once 'layout/head.php';
 require_once 'classes/Actor.php';
 
-$actors = Actor::getActorsByIdSeries();
+if (!isset($_SESSION['search'])) {
+    $_SESSION['search'] = '';
+}
+$actors = Actor::getActorByIdSeriesWithSearch(intval($_GET['id']), $_SESSION['search']);
 if (count($actors) == 0) {
     // template no actor
+    echo 'Aucun acteur existant';
+    $_SESSION['search'] = '';
     exit;
 }
+
 ?>
 
 <section class="">
     <div class="container">
         <div class="row text-center">
-            <?php for ($i = 0; $i < 1; $i++) { ?>
+            <?php for ($i = 0; $i < 1; $i++) {
+                $_SESSION['serie'] = ['id' => $actors[$i]['id_series'], 'name' => $actors[$i]['name_series']];
+            ?>
                 <h2 class="my-4"><?php echo $actors[$i]['name_series']; ?></h2>
             <?php } ?>
             <?php foreach ($actors as $actor) { ?>
@@ -34,4 +42,6 @@ if (count($actors) == 0) {
     </div>
 </section>
 
-<?php require_once 'layout/foot.php';
+<?php 
+$_SESSION['search'] = '';
+require_once 'layout/foot.php';

@@ -12,6 +12,11 @@ if (empty($_FILES)) {
     exit;
 }
 
+if ($_POST['series'] === 'Choisir la série') {
+    header('Location: ../admin/upload.php?error=' . Notification::FIELD_EMPTY);
+    exit;
+}
+
 // On extrait le fichier de $_FILES
 $fileBio = $_FILES['file_bio'];
 $filePdp = $_FILES['file_pdp'];

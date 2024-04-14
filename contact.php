@@ -9,10 +9,10 @@ require_once 'layout/head.php';
             <h2 class="mt-4 mb-0">Contact</h2>
             <form action="process/contact_process.php" method="POST" class="row g-3">
                 <div class="col-md-6">
-                    <input type="text" class="form-control" name="first_name" placeholder="Nom" required>
+                    <input type="text" class="form-control" name="last_name" placeholder="Nom" required>
                 </div>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" name="last_name" placeholder="Prénom" required>
+                    <input type="text" class="form-control" name="first_name" placeholder="Prénom" required>
                 </div>
                 <div class="col-md-12">
                     <input type="email" class="form-control" name="email" placeholder="E-mail" required>

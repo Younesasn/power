@@ -2,7 +2,7 @@
 require_once 'layout/head.php';
 require_once '../classes/Contact.php';
 
-$contacts = Contact::getContacts();
+$contacts = Contact::getContactsWithLimit();
 ?>
 <div class="wrapper">
 	<?php require_once 'layout/sidebar.php'; ?>

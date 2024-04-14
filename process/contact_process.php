@@ -2,7 +2,7 @@
 require_once '../classes/Contact.php';
 require_once '../classes/Notification.php';
 
-if (empty($_POST)) {
+if (!isset($_POST) || empty($_POST)) {
     header('Location: ../contact.php');
     exit;
 }

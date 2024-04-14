@@ -3,7 +3,7 @@ require_once 'layout/head.php';
 require_once '../classes/Contact.php';
 require_once '../classes/Actor.php';
 
-$actors = Actor::getActorsWithLimit();
+$actors = Actor::getActorsWithLimit(0, 8);
 $latestContacts = Contact::getLatestContacts();
 ?>
 <div class="wrapper">

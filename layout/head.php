@@ -66,20 +66,29 @@ $series = Database::select('series');
                     </ul>
                 </div>
                 <div class="collapse navbar-collapse col-lg-4 justify-content-end" id="navbarNav">
+                    <?php if ($_SERVER["SCRIPT_NAME"] === '/power/serie.php') { ?>
+                        <div class="me-3">
+                            <form class="d-flex" role="search" method="GET" action="process/search_process.php">
+                                <input class="form-control me-2" name="search" type="search" placeholder="Un acteur ?" aria-label="Actor">
+                                <button class="btn btn-primary" type="submit">Search</button>
+                            </form>
+                        </div>
+                    <?php } ?>
+
                     <ul class="navbar-nav">
-                        <?php if(!isset($_SESSION['useradmin'])) { ?>
-                        <li class="nav-item">
-                            <a href="sign-up.php" class="nav-link active">
-                                Inscription
-                            </a>
-                        </li>
+                        <?php if (!isset($_SESSION['useradmin'])) { ?>
+                            <li class="nav-item">
+                                <a href="sign-up.php" class="nav-link active">
+                                    Inscription
+                                </a>
+                            </li>
                         <?php } ?>
-                        <?php if(isset($_SESSION['useradmin'])) { ?>
-                        <li class="nav-item">
-                            <a href="sign-in.php" class="nav-link active">
-                                Admin
-                            </a>
-                        </li>
+                        <?php if (isset($_SESSION['useradmin'])) { ?>
+                            <li class="nav-item">
+                                <a href="sign-in.php" class="nav-link active">
+                                    Admin
+                                </a>
+                            </li>
                         <?php } ?>
                     </ul>
                 </div>
