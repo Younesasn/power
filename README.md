@@ -16,7 +16,7 @@ DB_USERNAME = 'db_username'
 DB_PASSWORD = 'db_password'
 ```
 
-Voici un [schéma représentatif de la base de donnée](<bdd.png>) du projet :
+Voici un [schéma représentatif de la base de donnée](<bdd.png>) du projet
 
 Retrouvez aussi le script SQL dans `/data/power.sql` pour reprendre les données du projet.
 
