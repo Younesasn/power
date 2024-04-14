@@ -16,7 +16,7 @@ DB_USERNAME = 'db_username'
 DB_PASSWORD = 'db_password'
 ```
 
-Voici un [schéma représentatif de la base de donnée](<bdd.png>) du projet
+Voici un [schéma représentatif de la base de donnée](<bdd.png>) du projet.
 
 Retrouvez aussi le script SQL dans `/data/power.sql` pour reprendre les données du projet.
 
@@ -52,7 +52,7 @@ J'ai tenté de créer plusieurs classes qui regroupent les méthodes que j'utili
 
 ## Les Notifications
 
-J'ai géré les messages d'erreurs & de succès via le paramètre "$_GET" dans ma classe "Notifiaction", ce qui me forçait à déclarer de nombreux codes pour chaque situation différente, ce qui ne me plaisais pas vraiment. Le mieux aurait été de les gérer avec les "$_SESSION" pour pouvoir être + "propre" dans la gestion de messages.
+J'ai géré les messages d'erreurs & de succès via le paramètre "$_GET" dans ma classe "Notification", ce qui me forçait à déclarer de nombreux codes pour chaque situation différente, ce qui ne me plaisais pas vraiment. Le mieux aurait été de les gérer avec les "$_SESSION" pour pouvoir être + "propre" dans la gestion de messages.
 
 ## User
 
