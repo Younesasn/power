@@ -19,6 +19,7 @@ DB_PASSWORD = 'db_password'
 Voici un [schéma représentatif de la base de donnée](<bdd.png>) du projet.
 
 Retrouvez aussi le script SQL dans `/data/power.sql` pour reprendre les données du projet.
+> Attention : commencez d'abord par créer une base de donnée nommée `Power` avant d'importer le fichier SQL.
 
 ## Séries & Acteurs
 
