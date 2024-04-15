@@ -19,7 +19,7 @@ DB_PASSWORD = 'db_password'
 Voici un [schéma représentatif de la base de donnée](<bdd.png>) du projet.
 
 Retrouvez aussi le script SQL dans `/data/power.sql` pour reprendre les données du projet.
-> [!Attention]
+> [!WARNING]
 > Commencez d'abord par créer une base de donnée nommée `Power` avant d'importer le fichier SQL.
 
 ## Séries & Acteurs
@@ -48,7 +48,7 @@ J'ai simplement affiché tout les messages envoyés par les utilisateurs depuis 
 
 Cette page permet à la fois l'ajout, la modification & la suppression des acteurs/séries. J'ai rangé toutes les pages rebonds dans le dossier `/process/` pour avoir une meilleure gestion de mes fichiers.
 
-> [!Remarque]
+> [!NOTE]
 > J'ai volontairement laissé en publique l'entièreté du dossier `/uploads/` pour avoir un meilleur visuel sur le projet.
 
 ## Les classes
