@@ -8,8 +8,7 @@ if (!isset($_SESSION['search'])) {
 }
 $actors = Actor::getActorByIdSeriesWithSearch(intval($_GET['id']), $_SESSION['search']);
 if (count($actors) == 0) {
-    // template no actor
-    echo 'Aucun acteur existant';
+    require_once 'templates/actor_not_found.php';
     $_SESSION['search'] = '';
     exit;
 }

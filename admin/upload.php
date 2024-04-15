@@ -211,7 +211,7 @@ $actors_series = Actor::getActorsWithoutJoin();
 												</select>
 											</div>
 											<div class="col-lg-12 mt-3 text-end">
-												<input type="submit" value="Supprimer" class="btn btn-primary ">
+												<input type="submit" value="Ajouter" class="btn btn-primary ">
 											</div>
 										</form>
 									</div>

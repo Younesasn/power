@@ -46,6 +46,8 @@ J'ai simplement affiché tout les messages envoyés par les utilisateurs depuis 
 
 Cette page permet à la fois l'ajout, la modification & la suppression des acteurs/séries. J'ai rangé toutes les pages rebonds dans le dossier `/process/` pour avoir une meilleure gestion de mes fichiers.
 
+J'ai volontairement laissé en publique l'entièreté du dossier `/uploads/` pour avoir un meilleur visuel sur le projet.
+
 ## Les classes
 
 J'ai tenté de créer plusieurs classes qui regroupent les méthodes que j'utilisais plusieurs fois dans mon projet, mais je me suis rendu compte que mes méthodes étaient un peu trop "spécifiques" moins générales. C'était à la base pour factoriser mes pages rebonds, pour éviter d'avoir 15k lignes à "déchiffrer". Je ne sais pas si cela était une bonne idée, en tout cas ça fonctionne.

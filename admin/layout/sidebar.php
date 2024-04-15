@@ -15,24 +15,6 @@
                 </a>
             </li>
 
-            <!-- <li class="sidebar-item">
-                <a class="sidebar-link" href="pages-profile.php">
-                    <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
-                </a>
-            </li> -->
-
-            <!-- <li class="sidebar-item">
-                <a class="sidebar-link" href="pages-sign-in.php">
-                    <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Sign In</span>
-                </a>
-            </li>
-
-            <li class="sidebar-item">
-                <a class="sidebar-link" href="pages-sign-up.php">
-                    <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Sign Up</span>
-                </a>
-            </li> -->
-
             <li class="sidebar-item">
                 <a class="sidebar-link" href="messagerie.php">
                     <i class="align-middle" data-feather="mail"></i> <span class="align-middle">Messagerie</span>
@@ -48,40 +30,6 @@
             <li class="sidebar-item">
                 <a class="sidebar-link" href="../index.php">
                     <i class="align-middle" data-feather="compass"></i> <span class="align-middle">Power Universe</span>
-                </a>
-            </li>
-
-            <li class="sidebar-header">
-                Tools & Components
-            </li>
-
-            <li class="sidebar-item">
-                <a class="sidebar-link" href="ui-buttons.php">
-                    <i class="align-middle" data-feather="square"></i> <span class="align-middle">Buttons</span>
-                </a>
-            </li>
-
-            <li class="sidebar-item">
-                <a class="sidebar-link" href="ui-forms.php">
-                    <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Forms</span>
-                </a>
-            </li>
-
-            <li class="sidebar-item">
-                <a class="sidebar-link" href="ui-cards.php">
-                    <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Cards</span>
-                </a>
-            </li>
-
-            <li class="sidebar-item">
-                <a class="sidebar-link" href="ui-typography.php">
-                    <i class="align-middle" data-feather="align-left"></i> <span class="align-middle">Typography</span>
-                </a>
-            </li>
-
-            <li class="sidebar-item">
-                <a class="sidebar-link" href="icons-feather.php">
-                    <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Icons</span>
                 </a>
             </li>
         </ul>
