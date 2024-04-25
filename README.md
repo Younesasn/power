@@ -49,7 +49,7 @@ J'ai simplement affiché tout les messages envoyés par les utilisateurs depuis 
 Cette page permet à la fois l'ajout, la modification & la suppression des acteurs/séries. J'ai rangé toutes les pages rebonds dans le dossier `/process/` pour avoir une meilleure gestion de mes fichiers.
 
 > [!NOTE]
-> J'ai volontairement versionné dossier `/uploads/` pour avoir un meilleur visuel sur le projet.
+> J'ai volontairement versionné le dossier `/uploads/` pour avoir un meilleur visuel sur le projet.
 
 ## Les classes
 
